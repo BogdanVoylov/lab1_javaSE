@@ -112,6 +112,15 @@ public class Faculty {
         return res;
     }
 
+    public Student[] getStudents(){
+        Student[] res = new Student[0];
+        for(Cathedra cathedra:cathedras){
+            Object[] combination = Resizer.combine(res,cathedra.getStudents());
+            res = Arrays.copyOf(combination,combination.length,Student[].class);
+        }
+        return res;
+    }
+
     @Override
     public String toString(){
         String cathedrasString = new String();

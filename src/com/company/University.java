@@ -126,6 +126,21 @@ public class University {
         return res;
     }
 
+    public Student[] getAllStudents(){
+        Student[] res = new Student[0];
+        for(Faculty faculty:faculties){
+            Object[] combination = Resizer.combine(res,faculty.getStudents());
+            res = Arrays.copyOf(combination,combination.length,Student[].class);
+        }
+        return res;
+    }
+
+    public Student[] allStudentsSortedByYear(){
+        Student[] students = getAllStudents();
+        Arrays.sort(students,new SortByYear());
+        return students;
+    }
+
     @Override
     public String toString(){
         String facultiesString = new String();

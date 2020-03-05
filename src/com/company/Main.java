@@ -40,7 +40,7 @@ public class Main {
                 }else if(input.equals("4")){
                     handleFindStudentTeacher(bufferedReader,university);
                 }else if(input.equals("5")){
-
+                    handleSortAllStudentsByYear(bufferedReader,university);
                 }else if(input.equals("6")){
 
                 }else if(input.equals("7")){
@@ -60,6 +60,13 @@ public class Main {
                 e.printStackTrace();
                 System.out.println("Wrong input");
             }
+        }
+    }
+
+    private static void handleSortAllStudentsByYear(BufferedReader bufferedReader, University university) {
+        Student[] sortedStudents = university.allStudentsSortedByYear();
+        for(Student student:sortedStudents){
+            System.out.println(student);
         }
     }
 

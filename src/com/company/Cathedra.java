@@ -122,6 +122,9 @@ public class Cathedra {
         return res;
     }
 
+    public Student[] getStudents() {
+        return Arrays.copyOf(Resizer.clone(students),students.length,Student[].class);
+    }
 
     @Override
     public String toString(){

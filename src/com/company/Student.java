@@ -1,6 +1,6 @@
 package com.company;
 
-public class Student extends UniversityMember {
+public class Student extends UniversityMember implements ICloneable {
     private int year;
     private int group;
 
