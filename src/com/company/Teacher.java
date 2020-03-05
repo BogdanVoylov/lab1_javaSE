@@ -11,6 +11,9 @@ public class Teacher extends UniversityMember {
     public boolean isInGroup(int group){
         return IntStream.of(groups).anyMatch(x->x==group);
     }
+    public Teacher clone(){
+        return new Teacher(name,surname,groups.clone());
+    }
     @Override
     public String toString(){
         String groupsToString = "[";
