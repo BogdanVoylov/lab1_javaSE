@@ -38,7 +38,7 @@ public class Cathedra {
     }
 
     public String getTeachersList() {
-        String res = new String();
+        String res = "";
         for (int i = 0; i < teachers.length; i++) {
             res += i + "." + teachers[i] + "\n";
         }
@@ -46,7 +46,7 @@ public class Cathedra {
     }
 
     public String getStudentsList() {
-        String res = new String();
+        String res = "";
         for (int i = 0; i < students.length; i++) {
             res += i + "." + students[i] + "\n";
         }
@@ -54,7 +54,7 @@ public class Cathedra {
     }
 
     public String getStudentsByName(String name) {
-        String res = new String();
+        String res = "";
         for (Student student : students) {
             if (name.equals(student.getName())) {
                 res += student + "\n";
@@ -64,7 +64,7 @@ public class Cathedra {
     }
 
     public String getStudentsBySurname(String surname) {
-        String res = new String();
+        String res = "";
         for (Student student : students) {
             if (surname.equals(student.getSurname())) {
                 res += student + "\n";
@@ -74,7 +74,7 @@ public class Cathedra {
     }
 
     public String getStudentsByYear(int year) {
-        String res = new String();
+        String res = "";
         for (Student student : students) {
             if (year == student.getYear()) {
                 res += student + "\n";
@@ -95,7 +95,7 @@ public class Cathedra {
     }
 
     public String getStudentsByGroup(int group) {
-        String res = new String();
+        String res = "";
         for (Student student : students) {
             if (group == student.getGroup()) {
                 res += student + "\n";
@@ -105,7 +105,7 @@ public class Cathedra {
     }
 
     public String getTeachersByName(String name) {
-        String res = new String();
+        String res = "";
         for (Teacher teacher : teachers) {
             if (name.equals(teacher.getName())) {
                 res += teacher + "\n";
@@ -115,7 +115,7 @@ public class Cathedra {
     }
 
     public String getTeachersBySurname(String surname) {
-        String res = new String();
+        String res = "";
         for (Teacher teacher : teachers) {
             if (surname.equals(teacher.getSurname())) {
                 res += teacher + "\n";
@@ -125,7 +125,7 @@ public class Cathedra {
     }
 
     public String getTeachersByGroup(int group) {
-        String res = new String();
+        String res = "";
         for (Teacher teacher : teachers) {
             if (teacher.isInGroup(group)) {
                 res += teacher + "\n";
@@ -144,11 +144,11 @@ public class Cathedra {
 
     @Override
     public String toString() {
-        String studentsString = new String();
+        String studentsString = "";
         for (Student student : students) {
             studentsString += student.toString() + "\n";
         }
-        String teachersString = new String();
+        String teachersString = "";
         for (Teacher teacher : teachers) {
             teachersString += teacher.toString() + "\n";
         }

@@ -69,7 +69,6 @@ public class Main {
         int facultyIndex = pair.getKey();
         int cathedraIndex = pair.getValue();
         System.out.print("Enter a studying year: ");
-        System.out.print("Enter a studying year: ");
         try {
             int year = Integer.parseInt(bufferedReader.readLine());
             Student[] students = university.getStudentsFromCathedraOfYearByAlphabet(facultyIndex, cathedraIndex, year);
@@ -117,7 +116,6 @@ public class Main {
 
     private static void handleSortCathedraStudentsByYear(BufferedReader bufferedReader, University university) throws Exception {
         String menuPointer = "(sort cathedra students by year)";
-        int index = smartGetFacultyIndex(bufferedReader, university, menuPointer);
         Pair<Integer, Integer> pair = getFacultyAndCathedraIndexes(bufferedReader, university, menuPointer);
         int facultyIndex = pair.getKey();
         int cathedraIndex = pair.getValue();
@@ -199,13 +197,15 @@ public class Main {
                 input = bufferedReader.readLine();
                 int year = Integer.parseInt(input);
                 System.out.println(university.findStudentsByYear(year));
+            } else if (input.equals(exitCommand)){
+                break;
             } else {
                 throw new Exception();
             }
         }
     }
 
-    public static void handleFacultyMenu(BufferedReader bufferedReader, University university) throws Exception {
+    private static void handleFacultyMenu(BufferedReader bufferedReader, University university) throws Exception {
         String addCommand = "add";
         String editCommand = "edit";
         String removeCommand = "remove";
@@ -243,7 +243,7 @@ public class Main {
         }
     }
 
-    public static void handleCathedraMenu(BufferedReader bufferedReader, University university) throws Exception {
+    private static void handleCathedraMenu(BufferedReader bufferedReader, University university) throws Exception {
         String addCommand = "add";
         String editCommand = "edit";
         String removeCommand = "remove";
@@ -280,7 +280,7 @@ public class Main {
         }
     }
 
-    public static Pair<Integer, Integer> getFacultyAndCathedraIndexes(BufferedReader bufferedReader, University university, String menuPointer) throws Exception {
+    private static Pair<Integer, Integer> getFacultyAndCathedraIndexes(BufferedReader bufferedReader, University university, String menuPointer) throws Exception {
         int facultyIndex = smartGetFacultyIndex(bufferedReader, university, menuPointer);
         System.out.print(university.getListOfCathedras(facultyIndex));
         System.out.print(menuPointer + "Enter cathedra index: ");
@@ -289,7 +289,7 @@ public class Main {
         return new Pair<>(facultyIndex, cathedraIndex);
     }
 
-    public static int smartGetFacultyIndex(BufferedReader bufferedReader, University university, String menuPointer) throws Exception {
+    private static int smartGetFacultyIndex(BufferedReader bufferedReader, University university, String menuPointer) throws Exception {
         System.out.println(university.getListOfFaculties());
         System.out.print(menuPointer + "Enter faculty index: ");
         String input = bufferedReader.readLine();
@@ -300,7 +300,7 @@ public class Main {
         return facultyIndex;
     }
 
-    public static boolean chooseStudentTeacher(BufferedReader bufferedReader, String menuPointer) throws Exception {
+    private static boolean chooseStudentTeacher(BufferedReader bufferedReader, String menuPointer) throws Exception {
         System.out.print(menuPointer + "Enter 0 for student or 1 for teacher: ");
         String input = bufferedReader.readLine();
         if (input.equals("0")) {
@@ -312,7 +312,7 @@ public class Main {
         }
     }
 
-    public static Student getStudent(BufferedReader bufferedReader, String menuPointer) throws Exception {
+    private static Student getStudent(BufferedReader bufferedReader, String menuPointer) throws Exception {
         System.out.print(menuPointer + "Enter name: ");
         String name = bufferedReader.readLine();
         System.out.print(menuPointer + "Enter surname: ");
@@ -326,7 +326,7 @@ public class Main {
         return new Student(name, surname, year, groupNumber);
     }
 
-    public static Teacher getTeacher(BufferedReader bufferedReader, String menuPointer) throws IOException {
+    private static Teacher getTeacher(BufferedReader bufferedReader, String menuPointer) throws IOException {
         System.out.print(menuPointer + "Enter name: ");
         String name = bufferedReader.readLine();
         System.out.print(menuPointer + "Enter surname: ");
@@ -337,7 +337,7 @@ public class Main {
         return new Teacher(name, surname, groups);
     }
 
-    public static void handleStudentTeacherMenu(BufferedReader bufferedReader, University university) throws Exception {
+    private static void handleStudentTeacherMenu(BufferedReader bufferedReader, University university) throws Exception {
         String addCommand = "add";
         String editCommand = "edit";
         String removeCommand = "remove";
